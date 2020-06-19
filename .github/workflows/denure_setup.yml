@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+      
+    - name: Set up Deno 
+      uses: denolib/setup-deno@master 
+      with: 
+          deno-version: 1.0.1
+      
+    - name: Zipping and Bundle Denure
+      run: |
+        deno bundle server.ts server.bundle.js zip app.zip 
+        server.bundle.js
+        
+    - name: Azure Join!!
+      uses: Azure/login@v1.1
+      with: 
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+    - name: Deploy Deno to Azure App Service
+      uses: anthonychu/azure-webapps-deno-deploy@v0.3.0
+      with:
+        app-name: denure
+        resource-group: develop
+        package: app.zip
+        script-file: server.bundle.js
+        deno-version: 1.0.1
+    
