@@ -16,9 +16,10 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
       
-    - name: Setup Deno environment
-      uses: denolib/setup-deno@v1.3.0
-
+    - name: Set up Deno 
+      uses: denolib/setup-deno@master 
+      with: deno-version: 1.0.1
+      
     - name: Zipping and Bundle Denure
       run: |
         deno bundle server.ts server.bundle.js 
