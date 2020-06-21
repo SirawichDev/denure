@@ -18,7 +18,8 @@ jobs:
       
     - name: Set up Deno 
       uses: denolib/setup-deno@master 
-      with: deno-version: 1.0.1
+      with: 
+        deno-version: 1.0.1
       
     - name: Zipping and Bundle Denure
       run: |
