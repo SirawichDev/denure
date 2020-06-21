@@ -1,9 +1,6 @@
-# This is a basic workflow to help you get started with Actions
 
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ master ]
@@ -22,7 +19,7 @@ jobs:
     - name: Set up Deno 
       uses: denolib/setup-deno@master 
       with: 
-          deno-version: 1.0.1
+          deno-version: 1.1.0
       
     - name: Zipping and Bundle Denure
       run: |
@@ -41,5 +38,5 @@ jobs:
         resource-group: develop
         package: app.zip
         script-file: server.bundle.js
-        deno-version: 1.0.1
+        deno-version: 1.1.0
     
