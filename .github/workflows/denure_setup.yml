@@ -23,8 +23,7 @@ jobs:
       
     - name: Zipping and Bundle Denure
       run: |
-        deno bundle server.ts server.bundle.js zip app.zip 
-        server.bundle.js
+        deno bundle server.ts server.bundle.js zip app.zip server.bundle.js
         
     - name: Azure Join!!
       uses: Azure/login@v1.1
