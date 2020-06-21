@@ -9,7 +9,7 @@ import {
 } from "./api/index.ts";
 const router = new Router();
 router
-  .get("/healsCheck", ({ response }: { response: any }) => {
+  .get("/", ({ response }: { response: any }) => {
     response.body = "It's good there";
   })
   .get("/api/v1/players", getAllPlayers)

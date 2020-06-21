@@ -19,11 +19,11 @@ jobs:
     - name: Set up Deno 
       uses: denolib/setup-deno@master 
       with: 
-          deno-version: 1.1.0
+          deno-version: 1.0.1
       
     - name: Zipping and Bundle Denure
       run: |
-        deno bundle server.ts server.bundle.js
+        deno bundle server.ts server.bundle.js 
         zip app.zip server.bundle.js
         
     - name: Azure Join!!
@@ -38,5 +38,5 @@ jobs:
         resource-group: develop
         package: app.zip
         script-file: server.bundle.js
-        deno-version: 1.1.0
+        deno-version: 1.0.1
     
